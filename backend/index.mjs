@@ -6,6 +6,7 @@ import BlogRouter from "./routes/BlogRoutes.mjs";
 import ErrorRouter from "./routes/ErrorRoutes.mjs";
 import authRouter from "./routes/authRoutes.mjs";
 import cookieParser from "cookie-parser";
+import cors from "cors";
 
 const PORT = process.env.PORT || 3000;
 
@@ -15,6 +16,7 @@ await connectToDB();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static("public"));
+app.use(cors());
 
 app.use(customJsonParser);
 app.use(cookieParser());
